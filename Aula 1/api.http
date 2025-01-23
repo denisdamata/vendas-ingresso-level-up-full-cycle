@@ -2,6 +2,7 @@
 # @name loginPartner1
 POST http://localhost:3000/auth/login
 Content-Type: application/json
+# MANTENHA UMA LINHA EM BRANCO ANTES DO COLCHETE!!!
 
 {
     "email": "partner1@user.com",

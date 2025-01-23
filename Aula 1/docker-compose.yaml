@@ -1,0 +1,10 @@
+services:
+  mysql:
+    image: mysql:8.0.30-debian
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=tickets
+    ports:
+      - 33061:3306
+    volumes:
+      - ./db.sql:/docker-entrypoint-initdb.d/db.sql

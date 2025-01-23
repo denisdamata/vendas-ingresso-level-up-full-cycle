@@ -1,0 +1,104 @@
+### Loga Partner 1
+# @name loginPartner1
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "partner1@user.com",
+    "password": "secret"
+}
+
+###
+@tokenPartner1 = {{ loginPartner1.response.body.token }}
+
+### Loga Partner 2
+# @name loginPartner2
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "partner2@user.com",
+    "password": "secret"
+}
+
+###
+@tokenPartner2 = {{ loginPartner2.response.body.token }}
+
+
+### Loga curstomer
+# @name loginCustomer1
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "customer1@user.com",
+    "password": "secret"
+}
+
+###
+@tokenCustomer1 = {{ loginCustomer1.response.body.token }}
+
+
+
+### Cria Partner 1
+POST http://localhost:3000/partners/register
+Content-Type: application/json
+
+{   
+    "name": "Partner 1",
+    "email": "partner1@user.com",
+    "password": "secret",
+    "company_name": "Company Name 1"
+}
+
+### Cria Partner 2
+POST http://localhost:3000/partners/register
+Content-Type: application/json
+
+{   
+    "name": "Partner 2",
+    "email": "partner2@user.com",
+    "password": "secret",
+    "company_name": "Company Name 2"
+}
+
+
+### Cria Customer 1
+POST http://localhost:3000/customers/register
+Content-Type: application/json
+
+{
+    "name": "Customer 1",
+    "email": "customer1@user.com",
+    "password": "secret",
+    "address": "address test",
+    "phone": "+556198987575"
+}
+
+
+
+### Cria evento pelo parceiro
+POST http://localhost:3000/partners/events
+Content-Type: application/json
+Authorization: Bearer {{ tokenPartner1 }}
+
+{
+    "name": "Evento teste 1",
+    "description": "Descrição do evento",
+    "date": "2025-01-01T00:00:00",
+    "location": "Rua x bairro tal"
+}
+
+### Listagem de evento do parceiro
+GET http://localhost:3000/partners/events
+Authorization: Bearer {{ tokenPartner1 }}
+
+### Listagem de um evento do parceiro
+GET http://localhost:3000/partners/events/1
+Authorization: Bearer {{ tokenPartner1 }}
+
+### Listagem de eventos
+GET http://localhost:3000/events
+
+### Listagem de um evento
+GET http://localhost:3000/events/1

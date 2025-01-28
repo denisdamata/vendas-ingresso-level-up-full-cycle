@@ -3,7 +3,7 @@ https://github.com/devfullcycle/level-up-for-juniors-01
 
 ## Vídeos
 
-[[Telegram]](https://t.me/engenhariadesoftwareuniasselvi/4/58)
+[[Telegram]](https://t.me/engenhariadesoftwareuniasselvi/4/56)
 
 ### Sugestão de leitura
 
